@@ -1,0 +1,1 @@
+START /MIN CMD.EXE /C "java -jar -Xmx55m Amplifier-1.0-SNAPSHOT.jar"

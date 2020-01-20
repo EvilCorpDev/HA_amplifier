@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.home.RunMe"
+    }
+
+    from {configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+    compile group: 'com.1stleg', name: 'jnativehook', version: '2.1.0'
+
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.10'
+
+    compile group: 'org.json', name: 'json', version: '20190722'
+
+    compile group: 'com.google.dagger', name: 'dagger', version: '2.25.4'
+    annotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: '2.25.4'
+
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.0'
+}
