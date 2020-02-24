@@ -1,0 +1,18 @@
+tray:
+    icon:
+        file: "tray-icon.png"
+        tooltip: "Amplifier control"
+mqtt:
+    serverUrl: "tcp://mqtt-url:1883"
+    clientId: amplifier_control
+    autoReconnect: true
+    username: <mqtt_username>
+    password: <mqtt_password>
+amplifier:
+    mqtt:
+        topic: "/amplifier/command"
+        payload:
+            volume_up: "VOLUME_UP"
+            volume_down: "VOLUME_DOWN"
+            mute: "MUTE"
+            source: "SOURCE"

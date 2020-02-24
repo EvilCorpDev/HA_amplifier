@@ -30,6 +30,11 @@ dependencies {
     compile group: 'com.google.dagger', name: 'dagger', version: '2.25.4'
     annotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: '2.25.4'
 
+    compile group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.2.2'
+
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.10.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.2'
+
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 

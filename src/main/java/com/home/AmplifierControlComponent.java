@@ -1,8 +1,10 @@
 package com.home;
 
 import com.home.amplifier.AmplifierModule;
+import com.home.configuration.ConfigurationModule;
 import com.home.keylistener.KeyListenerModule;
 import com.home.keylistener.KeyListenerRunner;
+import com.home.mqtt.MqttModule;
 import com.home.tray.TrayIconModule;
 import com.home.tray.TrayIconRunner;
 import dagger.BindsInstance;
@@ -13,6 +15,8 @@ import javax.inject.Singleton;
 
 @Singleton
 @Component(modules = {
+        ConfigurationModule.class,
+        MqttModule.class,
         AmplifierModule.class,
         KeyListenerModule.class,
         TrayIconModule.class
@@ -26,16 +30,7 @@ public interface AmplifierControlComponent {
     interface Builder {
 
         @BindsInstance
-        Builder trayIconImageName(@Named("tray_icon_image_name") String value);
-
-        @BindsInstance
-        Builder trayIconTooltip(@Named("tray_icon_tooltip") String value);
-
-        @BindsInstance
-        Builder homeAssistantToken(@Named("home_assistant_token") String value);
-
-        @BindsInstance
-        Builder homeAssistantUrl(@Named("home_assistant_url") String url);
+        Builder configurationFileName(@Named("configuration_file_name") String value);
 
         AmplifierControlComponent build();
     }

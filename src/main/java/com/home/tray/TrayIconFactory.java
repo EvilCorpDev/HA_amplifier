@@ -2,11 +2,11 @@ package com.home.tray;
 
 import com.home.amplifier.AmplifierService;
 import com.home.amplifier.AmplifierSource;
+import com.home.tray.configuration.TrayIconConfiguration;
 import com.home.tray.listener.ChangeSourceActionListener;
 import com.home.tray.repository.ImageRepository;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -17,23 +17,21 @@ public class TrayIconFactory {
 
     private ImageRepository imageRepository;
 
-    private String trayIconImageName;
-    private String trayIconTooltip;
+    private TrayIconConfiguration iconConfiguration;
 
     @Inject
     public TrayIconFactory(ChangeSourceActionListener actionListener,
-            AmplifierService amplifierService, ImageRepository imageRepository,
-            @Named("tray_icon_image_name") String trayIconImageName,
-            @Named("tray_icon_tooltip") String trayIconTooltip) {
+                           AmplifierService amplifierService,
+                           ImageRepository imageRepository,
+                           TrayIconConfiguration iconConfiguration) {
         this.actionListener = actionListener;
         this.amplifierService = amplifierService;
         this.imageRepository = imageRepository;
-        this.trayIconImageName = trayIconImageName;
-        this.trayIconTooltip = trayIconTooltip;
+        this.iconConfiguration = iconConfiguration;
     }
 
     public TrayIcon build() {
-        Image trayIconImage = imageRepository.loadImageByName(trayIconImageName);
+        Image trayIconImage = imageRepository.loadImageByName(iconConfiguration.getFile());
 
         PopupMenu popup = new PopupMenu();
         for (AmplifierSource amplifierSource : AmplifierSource.values()) {
@@ -43,7 +41,7 @@ public class TrayIconFactory {
         addAction(popup, "Mute", e -> amplifierService.mute());
         addAction(popup, "Exit", e -> System.exit(0));
 
-        return new TrayIcon(trayIconImage, trayIconTooltip, popup);
+        return new TrayIcon(trayIconImage, iconConfiguration.getTooltip(), popup);
     }
 
     private void addAction(PopupMenu popup, String title, ActionListener action) {
