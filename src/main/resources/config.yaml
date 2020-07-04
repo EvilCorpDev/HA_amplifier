@@ -3,7 +3,7 @@ tray:
         file: "tray-icon.png"
         tooltip: "Amplifier control"
 mqtt:
-    serverUrl: "tcp://mqtt-url:1883"
+    serverUrl: "tcp://192.168.1.128:1883"
     clientId: amplifier_control
     autoReconnect: true
     username: <mqtt_username>
@@ -16,3 +16,9 @@ amplifier:
             volume_down: "VOLUME_DOWN"
             mute: "MUTE"
             source: "SOURCE"
+climate:
+    mqtt:
+        topic: "/climate/command"
+        payload:
+            temp_up: "TEMP_UP"
+            temp_down: "TEMP_DOWN"

@@ -7,10 +7,13 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import javax.inject.Singleton;
+
 @Module
 public class MqttModule {
 
     @Provides
+    @Singleton
     public MqttClient mqttClient(ConfigurationService configurationService) {
         MqttConfiguration configuration =
                 configurationService.buildConfiguration("mqtt", MqttConfiguration.class);
