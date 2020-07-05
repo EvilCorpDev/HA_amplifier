@@ -2,7 +2,7 @@ package com.home;
 
 public class RunMe {
     public static void main(String[] args) {
-        AmplifierControlComponent context = DaggerAmplifierControlComponent.builder()
+        KeyboardHassControlComponent context = DaggerKeyboardHassControlComponent.builder()
                 .configurationFileName("config.yaml")
                 .build();
 

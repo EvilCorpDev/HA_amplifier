@@ -16,3 +16,9 @@ amplifier:
             volume_down: "VOLUME_DOWN"
             mute: "MUTE"
             source: "SOURCE"
+climate:
+    mqtt:
+        topic: "/climate/command"
+        payload:
+            temp_up: "TEMP_UP"
+            temp_down: "TEMP_DOWN"
