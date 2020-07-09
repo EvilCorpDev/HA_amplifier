@@ -3,6 +3,7 @@ package com.home;
 import com.home.amplifier.AmplifierModule;
 import com.home.climate.ClimateModule;
 import com.home.configuration.ConfigurationModule;
+import com.home.cover.CoverModule;
 import com.home.keylistener.KeyListenerModule;
 import com.home.keylistener.KeyListenerRunner;
 import com.home.mqtt.MqttModule;
@@ -20,6 +21,7 @@ import javax.inject.Singleton;
         MqttModule.class,
         AmplifierModule.class,
         ClimateModule.class,
+        CoverModule.class,
         KeyListenerModule.class,
         TrayIconModule.class
 })

@@ -17,6 +17,8 @@ public enum KeyCode {
     DOWN_KEY_CODE(57424),
     RIGHT_KEY_CODE(57421),
     LEFT_KEY_CODE(57419),
+    FOUR_KEY_CODE(5),
+    FIVE_KEY_CODE(6),
     NOT_FOUND(-1);
 
     @Getter

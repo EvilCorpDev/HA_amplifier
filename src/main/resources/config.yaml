@@ -22,3 +22,9 @@ climate:
         payload:
             temp_up: "TEMP_UP"
             temp_down: "TEMP_DOWN"
+cover:
+    mqtt:
+        topic: "/cover/command"
+        payload:
+            open_cover: "CURTAINS_OPEN"
+            close_cover: "CURTAINS_CLOSE"
